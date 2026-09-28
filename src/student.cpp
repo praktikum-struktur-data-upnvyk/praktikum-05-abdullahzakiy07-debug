@@ -107,7 +107,6 @@ void clear(Stack& s) {
 
 // SOAL 4
 bool kurungSeimbang(const string& ekspresi) {
-    
     return false;
 }
 
