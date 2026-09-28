@@ -107,7 +107,65 @@ void clear(Stack& s) {
 
 // SOAL 4
 bool kurungSeimbang(const string& ekspresi) {
-    return false;
+    Stack s;
+    s.top = nullptr;
+    inisialisasi(s);
+
+    for (auto c : ekspresi)
+    {
+        if (c =='{')
+        {
+            push(s,1);
+        } else if(c == '('){
+            push(s,2);
+        } else if(c=='['){
+            push(s,3);
+        } else if(c == '}'){
+            int cek;
+            if (pop(s,cek))
+            {
+                if (cek != 1)
+                {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+            
+        } else if(c== ']'){
+            int cek;
+            if (pop(s,cek))
+            {
+                if (cek != 2)
+                {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        } else if(c == '}'){
+            int cek;
+            if (pop(s,cek))
+            {
+                if (cek != 3)
+                {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        }
+        
+    }
+    
+    if (!isEmpty(s))
+    {
+        return false;
+    } 
+    
+    return true;
+
+    
 }
 
 // =============================================================================
